@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Установка</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+      integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <div id="app"></div>
+    <h1>Установка</h1>
+    <button>Встроить</button>
+    <button>Убрать</button>
+
+    <script src="https://api.bitrix24.com/api/v1/"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"
+      integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"></script>
+    <script>
+      BX24.init(function () {
+        const PLACEMENT_BIND = 'CRM_DEAL_DETAIL_TAB';
+
+        const url = window.location.href;
+        // const url = 'https://96a0-5-140-79-222.ngrok-free.app//index.html';
+
+        console.log('🚀 ~ url:', url);
+        console.log('🚀 ~ placement_bind:', PLACEMENT_BIND);
+
+        const result = BX24.callMethod('placement.bind', {
+          PLACEMENT: PLACEMENT_BIND ?? 'DEFAULT',
+          HANDLER: url,
+          TITLE: 'Тестовая карточка',
+        });
+        console.log('🚀 ~ result:', result);
+
+        BX24.installFinish();
+      });
+    </script>
+  </body>
+</html>

@@ -6,14 +6,14 @@ import { fieldsOfStages } from './constants.js';
 import { renderForm } from './render.js';
 
 BX24Service.init(async function () {
-  const isBinded = localStorage.getItem('isBinded');
+  // const isBinded = localStorage.getItem('isBinded');
 
-  if (!isBinded) {
-    const result = await API.placementBind();
-    console.log('🚀 ~ result:', result);
-  } else {
-    localStorage.setItem('isBinded', true);
-  }
+  // if (!isBinded) {
+  //   const result = await API.placementBind();
+  //   console.log('🚀 ~ result:', result);
+  // } else {
+  //   localStorage.setItem('isBinded', true);
+  // }
 
   const currentDeal = await API.fetchCurrentDeal(33);
   console.log('🚀 ~ currentDeal:', currentDeal);
